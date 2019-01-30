@@ -1,9 +1,11 @@
 //Import of express to Request and Rsponse
 import {Request, Response} from "express";
-
+import {ContactController} from '../controllers/crmContact';
 
 //create first route in TS
 export class Routes{
+
+    public crmContact: ContactController = new ContactController();  
 
     //Method to a route default
     public routes(app): void{
@@ -15,40 +17,19 @@ export class Routes{
         }); 
         
         //GET Contact
-        app.route('/contact').get((req:Request, res:Response)=>{
-            res.status(200).send({
-                message:'Get Contact request with successfull!'
-            })
-        });
+        app.route('/contact').get(this.crmContact.getContacts);
 
         //POST Contact
-        app.route('/contact').post((req:Request, res:Response)=>{
-            res.status(200).send({
-                message:'Post Contact resquest with successfull!'
-            })
-        });
+        app.route('/contact').post(this.crmContact.addNewContact);
 
         //GET - Details in the Contact
-        app.route('/contact/:contactId').get((req:Request, res:Response)=>{
-            res.status(200).send({
-                message:'Get a Contact request with successfull!'
-            })
-        });
-
+        app.route('/contact/:contactId').get(this.crmContact.getContactID);
 
         //Update a contact 
-        app.route('/contact/:contactId').put((req:Request, res:Response)=>{
-            res.status(200).send({
-                message:'Put a Contact request with successfull!'
-            })
-        });
+        app.route('/contact/:contactId').put(this.crmContact.updateContact);
 
         //Delete a contact 
-        app.route('/contact/:contactId').delete((req:Request, res:Response)=>{
-            res.status(200).send({
-                message:'Delete a Contact request with successfull!'
-            })
-        });
+        app.route('/contact/:contactId').delete(this.crmContact.deleteContactID);
 
     }
 }
