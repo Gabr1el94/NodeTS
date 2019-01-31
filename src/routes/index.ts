@@ -1,6 +1,7 @@
 //Import of express to Request and Rsponse
 import {Request, Response} from "express";
 import {ContactController} from '../controllers/crmContact';
+import { NextFunction } from "connect";
 
 //create first route in TS
 export class Routes{
@@ -17,7 +18,13 @@ export class Routes{
         }); 
         
         //GET Contact
-        app.route('/contact').get(this.crmContact.getContacts);
+        app.route('/contact').get((req:Request,res:Response,next:NextFunction)=>{
+            if (req.query.key !== 'c5d715f3f6f6e3ee2f6ce238ed22fd38044e362b') {
+                res.status(401).send('You shall not pass!')
+            }else{
+                next();
+            }
+        },this.crmContact.getContacts);
 
         //POST Contact
         app.route('/contact').post(this.crmContact.addNewContact);
