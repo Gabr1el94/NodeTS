@@ -1,5 +1,5 @@
 # NODE-TS
-
+![download](https://user-images.githubusercontent.com/13353050/59777167-840b8380-928a-11e9-82b3-143a1d8ecd5d.png)
 # O que é NodeJS?
    - É uma plataforma em desenvolvimento voltado ao service-side, onde é possível criar aplicações Javascript para rodar como uma aplicação standalone em uma máquina, não dependendo de um browser para a execução, como estamos acostumados. Nisso podemos utilizar como console, browser, e também API's-client para executar em testes à manipulação de dados.
 
