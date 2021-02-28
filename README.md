@@ -82,7 +82,7 @@
   }
 }
 ```
- ***6º)*** Crie um arquivo "/lib/app.ts" :
+ ***6º)*** Instalação as dependências no ambiente :
   ```
      npm install --save @types/express express body-parser mongoose   nodemon
  ```
